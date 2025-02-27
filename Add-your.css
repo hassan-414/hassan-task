@@ -14,7 +14,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Navbar Styling */
 .navbar {
     width: 100%;
     background: #09090a;
@@ -119,7 +118,6 @@ button:hover {
     }
 }
 
-/* Footer Section */
 .footer {
     background: black;
     color: white;
@@ -134,13 +132,11 @@ button:hover {
     margin: auto;
 }
 
-/* Logo Styling */
 .footer-logo img {
     width: 150px;
     margin-bottom: 15px;
 }
 
-/* Navigation Links */
 .footer-links {
     display: flex;
     justify-content: center;
@@ -159,7 +155,6 @@ button:hover {
     color: orange;
 }
 
-/* Footer Text */
 .footer-text {
     font-size: 14px;
     color: #bbb;
@@ -175,7 +170,7 @@ button:hover {
     }
     
 }
-/* Responsive */
+
 @media (max-width: 768px) {
     .footer{
         width: 100%;
@@ -188,7 +183,6 @@ button:hover {
 
 }
 
-/* Form Styling */
 .form-container {
     background: #09090a;
     color: white;
@@ -280,7 +274,6 @@ button:hover {
     border-radius: 8px;
 }
 
-/* Responsive Design */
 @media (min-width: 1024px) {
     .car-list {
         grid-template-columns: repeat(3, 1fr); /* 3 Cards in One Row */
@@ -306,9 +299,6 @@ button:hover {
         grid-template-columns: repeat(1, 1fr); /* 1 Card for Mobile */
     }
 }
-
-
-
 
 .details-btn, .delete-btn {
     border: none;
