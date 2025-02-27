@@ -14,7 +14,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Navbar Styling */
 .navbar {
     width: 100%;
     background: #09090a;
@@ -80,9 +79,6 @@ button:hover {
     background: #e06900;
 }
 
-
-
-/* Responsive Design */
 @media (max-width: 768px) {
     .navbar {
         padding: 10px;
@@ -122,8 +118,6 @@ button:hover {
     }
 }
 
-
-/* Responsive Design */
 @media (max-width: 418px){
     .navbar {
         padding: 10px;
@@ -146,7 +140,6 @@ button:hover {
     }
 }
 
-/* Banner */
 .dek-img {
     width: 100%;
     height: auto;
@@ -157,7 +150,6 @@ button:hover {
     display: none;
 }
 
-/* Showroom Section */
 .showroom {
     display: flex;
     flex-wrap: wrap;
@@ -166,7 +158,6 @@ button:hover {
 
 }
 
-/* Updated Car Cards */
 .car-box {
     background: white;
     padding: 20px;
@@ -213,7 +204,6 @@ button:hover {
     background: #e06900;
 }
 
-/* Modal Styling */
 .modal {
     position: fixed;
     top: 0;
@@ -306,7 +296,6 @@ button:hover {
     color: #ff7b01;
     font-size: 16px;
     font-weight: bold;
-    /* text-transform: uppercase; */
 }
 
 .trust-heading {
@@ -372,17 +361,14 @@ button:hover {
     }
 }
 
-/* Sell Section Styling */
 .sell-car-section {
     background: #fff;
-    /* White Background */
     padding: 60px 20px;
     margin-top: 30px;
     margin-bottom: 30px;
     border-radius: 20px;
 }
 
-/* Container with Flexbox */
 .sell-container {
     display: flex;
     align-items: center;
@@ -391,19 +377,18 @@ button:hover {
     margin: auto;
 }
 
-/* Left Text Section */
 .sell-text {
     max-width: 55%;
 }
 
-/* Heading Styling */
+
 .sell-text h2 {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-/* Flexbox for Options */
+
 .sell-options {
     display: flex;
     align-items: center;
@@ -411,7 +396,6 @@ button:hover {
     gap: 30px;
 }
 
-/* Sell Option (Icon + Text) */
 .sell-option {
     display: flex;
     align-items: center;
@@ -419,32 +403,32 @@ button:hover {
     width: 45%;
 }
 
-/* Icon Style */
+
 .sell-option img {
     width: 55px;
     height: 55px;
 }
 
-/* Sell Option Heading */
+
 .sell-option h3 {
     font-size: 18px;
     font-weight: bold;
 }
 
-/* Sell Option Text */
+
 .sell-option p {
     font-size: 18px;
     color: #666;
 }
 
-/* OR Divider */
+
 .divider {
     font-size: 18px;
     font-weight: bold;
     color: #666;
 }
 
-/* Get Started Button */
+
 .get-started-btn {
     margin-top: 20px;
     background: #ff7b01;
@@ -456,7 +440,6 @@ button:hover {
     font-weight: bold;
 }
 
-/* Right Image */
 .sell-image {
     max-width: 45%;
     display: flex;
@@ -466,10 +449,8 @@ button:hover {
 .sell-image img {
     max-width: 100%;
     width: 380px;
-    /* Adjusted size */
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .sell-container {
         flex-direction: column;
@@ -499,7 +480,6 @@ button:hover {
     }
 }
 
-/* Footer Section */
 .footer {
     background: black;
     color: white;
@@ -513,13 +493,11 @@ button:hover {
     margin: auto;
 }
 
-/* Logo Styling */
 .footer-logo img {
     width: 150px;
     margin-bottom: 15px;
 }
 
-/* Navigation Links */
 .footer-links {
     display: flex;
     justify-content: center;
@@ -538,23 +516,6 @@ button:hover {
     color: orange;
 }
 
-/* Social Media Icons */
-.footer-socials {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.footer-socials a {
-    color: white;
-    font-size: 22px;
-    transition: 0.3s ease;
-}
-
-.footer-socials a:hover {
-    color: orange;
-}
 
 /* Footer Text */
 .footer-text {
