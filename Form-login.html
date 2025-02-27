@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="Form-login.css">
+</head>
+
+<body>
+
+    <img id="logo" src="assets/Car Bazar white.png" alt="Logo" class="logo">
+    <span class="theme-toggle" onclick="toggleTheme()">🌙</span>
+
+    <div class="container">
+        <h2>Login</h2>
+        <input type="email" id="email" placeholder="Enter Email">
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="loginUser()">Login</button>
+        <p id="message" class="message"></p>
+        <p class="signup-link">Don't have an account? <a href="Form-signup.html">Sign up here</a></p>
+    </div>
+
+    <script>
+        function loginUser() {
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let message = document.getElementById("message");
+
+            if (!email || !password) {
+                message.innerText = "All fields are required!";
+                message.style.color = "red";
+                return;
+            }
+
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            let user = users.find(user => user.email === email && user.password === password);
+
+            if (!user) {
+                message.innerText = "Invalid email or password!";
+                message.style.color = "red";
+                return;
+            }
+
+            localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+            message.innerText = "Login Successful! Redirecting...";
+            message.style.color = "green";
+
+            setTimeout(() => {
+                window.location.href = "Home.html";
+            }, 2000);
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle("dark-mode");
+            let themeToggle = document.querySelector(".theme-toggle");
+            let logo = document.getElementById("logo");
+
+            if (document.body.classList.contains("dark-mode")) {
+                themeToggle.textContent = "☀️";
+                logo.src = "assets/Car Bazar black.png";
+            } else {
+                themeToggle.textContent = "🌙";
+                logo.src = "assets/Car Bazar white.png";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

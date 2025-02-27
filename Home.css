@@ -1,0 +1,576 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* Navbar Styling */
+.navbar {
+    width: 100%;
+    background: #09090a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    top: 0;
+    left: 0;
+    border-bottom: 2px solid #ff7b01;
+}
+
+.logo img {
+    width: 120px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff7b01;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.logout-btn {
+    background: #ff7b01;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button {
+    background: #ff7b01;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #e06900;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .menu-toggle {
+        margin-left: 200px;
+        display: block;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background: rgba(9, 9, 10, 0.95);
+        width: 60%;
+        height: 100vh;
+        padding-top: 60px;
+        transition: right 0.3s ease-in-out;
+        align-items: center;
+    }
+
+    .nav-links.show {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 18px;
+        padding: 15px;
+        display: block;
+    }
+
+    .logout-btn {
+        margin-top: 20px;
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 418px){
+    .navbar {
+        padding: 10px;
+    }
+
+    .menu-toggle {
+        margin-left: 100px;
+        display: block;
+    }
+}
+
+@media (max-width: 310px){
+    .navbar {
+        padding: 10px;
+    }
+
+    .menu-toggle {
+        margin-left: 50px;
+        display: block;
+    }
+}
+
+/* Banner */
+.dek-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.mob-img {
+    display: none;
+}
+
+/* Showroom Section */
+.showroom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 20px;
+
+}
+
+/* Updated Car Cards */
+.car-box {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    width: 320px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.car-box:hover {
+    transform: translateY(-10px);
+}
+
+.car-box img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.car-box h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.car-box p {
+    font-size: 16px;
+    color: #555;
+}
+
+button {
+    background: #ff7b01;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #e06900;
+}
+
+/* Modal Styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 420px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal-content p {
+    text-align: left;
+}
+
+.close {
+    cursor: pointer;
+    font-size: 34px;
+    color: red;
+    float: right;
+}
+
+.btn-explore {
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+.showroom-heading {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.showroom-heading h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+.showroom-heading p {
+    font-size: 18px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.btn-explore {
+    text-align: center;
+}
+
+@media (max-width: 585px) {
+    .mob-img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+    }
+
+    .dek-img {
+        display: none;
+    }
+
+    .car-box {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+
+.trust-section {
+    margin-top: 20px;
+    text-align: center;
+    padding: 50px 20px;
+    background: #f8f9fa;
+
+}
+
+.usp-title {
+    color: #ff7b01;
+    font-size: 16px;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+}
+
+.trust-heading {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 40px;
+
+}
+
+.usp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* position: relative; */
+}
+
+.timeline {
+    width: 4px;
+    background: #ff7b01;
+    height: 60px;
+    margin: 10px 0;
+}
+
+.usp-box {
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 10px 0;
+    /* position: relative; */
+}
+
+.usp-box.left {
+    text-align: left;
+}
+
+.usp-box.right {
+    text-align: right;
+}
+
+.icon {
+    font-size: 24px;
+    color: #ff7b01;
+    margin-bottom: 10px;
+}
+
+.usp-box h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.usp-box p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .usp-box {
+        text-align: center !important;
+    }
+}
+
+/* Sell Section Styling */
+.sell-car-section {
+    background: #fff;
+    /* White Background */
+    padding: 60px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+}
+
+/* Container with Flexbox */
+.sell-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Left Text Section */
+.sell-text {
+    max-width: 55%;
+}
+
+/* Heading Styling */
+.sell-text h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Flexbox for Options */
+.sell-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* Sell Option (Icon + Text) */
+.sell-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 45%;
+}
+
+/* Icon Style */
+.sell-option img {
+    width: 55px;
+    height: 55px;
+}
+
+/* Sell Option Heading */
+.sell-option h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Sell Option Text */
+.sell-option p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* OR Divider */
+.divider {
+    font-size: 18px;
+    font-weight: bold;
+    color: #666;
+}
+
+/* Get Started Button */
+.get-started-btn {
+    margin-top: 20px;
+    background: #ff7b01;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Right Image */
+.sell-image {
+    max-width: 45%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sell-image img {
+    max-width: 100%;
+    width: 380px;
+    /* Adjusted size */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sell-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sell-text {
+        max-width: 100%;
+    }
+
+    .sell-options {
+        flex-direction: column;
+    }
+
+    .sell-option {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .sell-image {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .sell-image img {
+        width: 300px;
+    }
+}
+
+/* Footer Section */
+.footer {
+    background: black;
+    color: white;
+    text-align: center;
+    width: 100%;
+    border-top: 3px solid orange;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Logo Styling */
+.footer-logo img {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+/* Navigation Links */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: orange;
+}
+
+/* Social Media Icons */
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.footer-socials a {
+    color: white;
+    font-size: 22px;
+    transition: 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: orange;
+}
+
+/* Footer Text */
+.footer-text {
+    font-size: 14px;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-socials {
+        gap: 10px;
+    }
+}

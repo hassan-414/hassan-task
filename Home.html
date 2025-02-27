@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Bazar</title>
+    <link rel="stylesheet" href="Home.css">
+
+</head>
+
+<body onclick="closeMenu(event)">
+
+    <div class="navbar">
+        <div class="logo"><a href="Home.html"><img src="assets/Car Bazar black.png" alt="Logo"></a></div>
+        <button class="menu-toggle" onclick="toggleMenu(event)">☰</button>~
+        <div class="nav-links">
+            <a href="Home.html">Home</a>
+            <a href="Showcase.html">Showcase</a>
+            <a href="Add-your.html">Add Yours</a>
+            <a href="About.html">About Us</a>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="banner">
+        <img class="dek-img" src="assets/banner1.png" alt="banner">
+        <img class="mob-img" src="assets/res-banner1.png" alt="mobile">
+    </div>
+
+    <div class="area">
+        <div class="showroom-heading">
+            <h2>Explore Our Latest Collection</h2>
+            <p>Find your dream car from our exclusive collection. Choose from top brands and drive away in style!</p>
+        </div>
+
+
+        <div class="showroom" id="showroom"></div>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="modal.style.display='none'">&times;</span>
+                <img id="modal-img">
+                <h2 id="modal-name"></h2>
+                <p><strong>Price:</strong> <span id="modal-price"></span></p>
+                <p><strong>Color:</strong> <span id="modal-color"></span></p>
+                <p id="modal-details"></p>
+            </div>
+        </div>
+
+        <div class="btn-explore">
+            <button onclick="explore()">Explore</button>
+        </div>
+    </div>
+
+    <section class="trust-section">
+        <h2 class="trust-heading">Why you should trust us?</h2>
+        <div class="usp-container">
+            <div class="usp-box left">
+                <div class="icon">✔️</div>
+                <h3>Verified Listings</h3>
+                <p>You can drive away knowing that we have got your back. Our commitment to quality enables you to get
+                    every vehicle on our platform, ensuring it is genuine and accurate.</p>
+            </div>
+            <div class="timeline"></div>
+            <div class="usp-box right">
+                <div class="icon">💰</div>
+                <h3>Transparent Pricing</h3>
+                <p>Don't worry for hidden surprises, you can make informed decisions with our price estimation tools for
+                    clear and fair pricing.</p>
+            </div>
+            <div class="usp-box left">
+                <div class="icon">🚗</div>
+                <h3>Priority Exposure</h3>
+                <p>Welcome to your gateway for the best deals and top options. Our platform features top vehicle
+                    selections with exclusive options for both buyers & sellers.</p>
+            </div>
+            <div class="timeline"></div>
+            <div class="usp-box right">
+                <div class="icon">📞</div>
+                <h3>Comprehensive Support</h3>
+                <p>We put our customers first on our platform. Our support team is available for all your concerns to
+                    ensure a smooth experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="sell-car-section">
+        <div class="sell-container">
+            <div class="sell-text">
+                <h2>Sell your car your way</h2>
+                <div class="sell-options">
+                    <div class="sell-option">
+                        <img src="https://www.cars.com/images/sell/explore-ready-go.png" alt="Offer Icon">
+                        <div>
+                            <h3>Get an offer online</h3>
+                            <p>Quickly complete the transaction with a local dealer.</p>
+                        </div>
+                    </div>
+                    <span class="divider">OR</span>
+                    <div class="sell-option">
+                        <img src="https://www.cars.com/images/sell/explore-enter-details.png" alt="List Icon">
+                        <div>
+                            <h3>List your car for free</h3>
+                            <p>Set your own price and showcase your car on Car Bazar.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="get-started-btn" onclick="getStarted()">Get Started</button>
+            </div>
+            <div class="sell-image">
+                <img src="https://www.cars.com/images/sell/sale-dealer-woman-brand-colors.png" alt="Selling Car">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="Home.html"><img src="assets/Car Bazar black.png" alt="Car Bazar Logo"></a>
+            </div>
+            <div class="footer-links">
+                <a href="Home.html">Home</a>
+                <a href="Showcase.html">Showcase</a>
+                <a href="Add-your.html">Add Yours</a>
+                <a href="About.html">About Us</a>
+            </div>
+            <p class="footer-text">© 2025 Car Bazar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        const cars = [
+            {
+                id: 1,
+                name: "Honda Civic",
+                price: "12,500 PKR",
+                color: "Black",
+                img: "https://files.idyllic.app/files/static/153860?width=256&optimizer=image",
+                details: `Engine: 1.5L VTEC Turbo, 176 HP  
+        Transmission: CVT Automatic  
+        Features:  
+        - Honda Sensing Safety Suite  
+        - Digital Meter Cluster  
+        - Wireless Apple CarPlay & Android Auto  
+        - Dual-Zone Climate Control  
+        - 16 km/l fuel efficiency`
+            },
+            {
+                id: 2,
+                name: "Ford Mustang",
+                price: "50,000 PKR",
+                color: "Yellow",
+                img: "https://avatars.mds.yandex.net/get-shedevrum/12365046/video_preview_37eec8baf50911eeb134ae5494798a57_1/orig",
+                details: `Engine: 5.0L V8, 480 HP  
+        Transmission: 10-Speed Automatic  
+        Features:  
+        - Digital Cockpit  
+        - Adaptive Cruise Control  
+        - Launch Control  
+        - Track Mode  
+        - 0-100 km/h in 4.2 seconds`
+            },
+            {
+                id: 3,
+                name: "Ferrari",
+                price: "60,000 PKR",
+                color: "Red",
+                img: "https://s.cafebazaar.ir/images/icons/com.ferrari_car_wallpaper.ferrari_backgrounds-f8c30cd4-8f07-46f8-8d5a-18e599e3d3c2_512x512.png?x-img=v1/resize,h_256,w_256,lossless_false/optimize",
+                details: `Engine: 3.9L Twin-Turbo V8, 710 HP  
+        Transmission: 7-Speed Dual-Clutch  
+        Features:  
+        - Aerodynamic Body Design  
+        - Carbon Fiber Interior  
+        - F1-Inspired Steering  
+        - Adaptive Suspension  
+        - Track-Optimized Performance`
+            }
+        ]
+
+        document.getElementById("showroom").innerHTML = cars.map(car => `
+            <div class="car-box">
+                <img src="${car.img}" alt="${car.name}">
+                <h3>${car.name}</h3>
+                <p><strong>Price:</strong> ${car.price}</p>
+                <p><strong>Color:</strong> ${car.color}</p>
+                <button onclick="showCar(${car.id})">View Details</button>
+            </div>
+        `).join("");
+
+        function showCar(id) {
+            const car = cars.find(c => c.id === id);
+            document.getElementById("modal-img").src = car.img;
+            document.getElementById("modal-name").innerText = car.name;
+            document.getElementById("modal-price").innerText = car.price;
+            document.getElementById("modal-color").innerText = car.color;
+            document.getElementById("modal-details").innerText = car.details;
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function toggleMenu(event) {
+            event.stopPropagation();
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+
+        function closeMenu(event) {
+            const navLinks = document.querySelector('.nav-links');
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                navLinks.classList.remove('show');
+            }
+        }
+
+        function logout() {
+            if (confirm("Are you sure you want to log out?")) {
+                localStorage.removeItem("loggedInUser");
+                window.location.href = "Form-login.html";
+            }
+        }
+
+        function explore() {
+            window.location.href = "Showcase.html";
+        }
+
+        function getStarted() {
+            window.location.href = "Add-your.html";
+        }
+
+    </script>
+</body>
+
+</html>

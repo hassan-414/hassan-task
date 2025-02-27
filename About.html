@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="About.css">
+</head>
+
+<body onclick="closeMenu(event)">
+
+
+    <div class="navbar">
+        <div class="logo"><a href="Home.html"><img src="assets/Car Bazar black.png" alt="Logo"></a></div>
+        <button class="menu-toggle" onclick="toggleMenu(event)">☰</button>
+        <div class="nav-links">
+            <a href="Home.html">Home</a>
+            <a href="Showcase.html">Showcase</a>
+            <a href="Add-your.html">Add Yours</a>
+            <a href="About.html">About Us</a>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+
+    <header class="about-header">
+        <h1>About Us</h1>
+    </header>
+
+    <div class="about-content">
+        <h1>Who <span>we are</span></h1>
+        <p><strong>Car Bazar</strong> is the fastest-growing car marketplace, helping thousands of car buyers and
+            sellers connect effortlessly. Established in 2025, we provide data, insights, and resources for an informed
+            car buying experience.</p>
+        <p>Car Bazar is a flagship offering from Car Bazar Inc., empowering the automotive industry through technology
+            and seamless transactions. Learn more at <a href="Home.html">carbazar.com</a>.</p>
+    </div>
+
+    <div class="location">
+        <h2>Our <span>Office</span></h2>
+        <p>Cars Bazar.com is located at Karachi, Pakistan.</p>
+        <p>a 23-story Class A,</p>
+
+        <h2>Car Bazar.com</h2>
+        <p>300 9. Dastagir, Block 1000</p>
+        <p>Karachi, IL 60606</p>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="Home.html"><img src="assets/Car Bazar black.png" alt="Car Bazar Logo"></a>
+            </div>
+            <div class="footer-links">
+                <a href="Home.html">Home</a>
+                <a href="Showcase.html">Showcase</a>
+                <a href="Add-your.html">Add Yours</a>
+                <a href="About.html">About Us</a>
+            </div>
+            <p class="footer-text">© 2025 Car Bazar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        
+        function toggleMenu(event) {
+            event.stopPropagation();
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+
+        function closeMenu(event) {
+            const navLinks = document.querySelector('.nav-links');
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                navLinks.classList.remove('show');
+            }
+        }
+
+        function logout() {
+            if (confirm("Are you sure you want to log out?")) {
+                localStorage.removeItem("loggedInUser");
+                window.location.href = "Form-login.html";
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

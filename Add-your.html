@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Inventory</title>
+    <link rel="stylesheet" href="Add-your.css">
+</head>
+
+<body onclick="closeMenu(event)">
+    <div class="navbar">
+        <div class="logo"><a href="Home.html"><img src="assets/Car Bazar black.png" alt="Logo"></a></div>
+        <button class="menu-toggle" onclick="toggleMenu(event)">☰</button>
+        <div class="nav-links">
+            <a href="Home.html">Home</a>
+            <a href="Showcase.html">Showcase</a>
+            <a href="Add-your.html">Add Yours</a>
+            <a href="About.html">About Us</a>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Add a New Car</h2>
+        <form id="carForm">
+            <div class="input-group">
+                <label for="carName">Car Name:</label>
+                <input type="text" id="carName" name="carName" required>
+            </div>
+
+            <div class="input-group">
+                <label for="carColor">Car Color:</label>
+                <input type="text" id="carColor" name="carColor" required>
+            </div>
+
+            <div class="input-group">
+                <label for="carPrice">Car Price (PKR):</label>
+                <input type="number" id="carPrice" name="carPrice" required>
+            </div>
+
+            <div class="input-group">
+                <label for="carDetails">Car Details:</label>
+                <textarea id="carDetails" name="carDetails" rows="4" required></textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="carImageURL">Car Image URL:</label>
+                <input type="url" id="carImageURL" name="carImageURL" placeholder="Enter image URL" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Add Car</button>
+        </form>
+    </div>
+
+    <div id="carList" class="car-list"></div>
+
+    <div id="carModal" class="modal">
+        <div class="modal-content" id="modalContent"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="Home.html"><img src="assets/Car Bazar black.png" alt="Car Bazar Logo"></a>
+            </div>
+            <div class="footer-links">
+                <a href="Home.html">Home</a>
+                <a href="Showcase.html">Showcase</a>
+                <a href="Add-your.html">Add Yours</a>
+                <a href="About.html">About Us</a>
+            </div>
+            <p class="footer-text">© 2025 Car Bazar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("carForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const car = {
+                name: document.getElementById("carName").value,
+                color: document.getElementById("carColor").value,
+                price: document.getElementById("carPrice").value,
+                details: document.getElementById("carDetails").value,
+                imageURL: document.getElementById("carImageURL").value
+            };
+            let cars = JSON.parse(localStorage.getItem("cars")) || [];
+            cars.push(car);
+            localStorage.setItem("cars", JSON.stringify(cars));
+            alert("Car added successfully!");
+
+            document.getElementById("carForm").reset();
+
+            displayCars();
+        });
+
+        function displayCars() {
+            let cars = JSON.parse(localStorage.getItem("cars")) || [];
+            let carList = document.getElementById("carList");
+            carList.innerHTML = "";
+            cars.forEach((car, index) => {
+                let carCard = document.createElement("div");
+                carCard.classList.add("car-card");
+                carCard.innerHTML = `
+                    <img src="${car.imageURL}" alt="${car.name}">
+                    <h3>${car.name}</h3>
+                    <p><strong>Price:</strong> ${car.price} PKR</p>
+                    <p><strong>Color:</strong> ${car.color}</p>
+                    <button class="details-btn" onclick="showDetails(${index})">View Details</button>
+                    <button class="delete-btn" onclick="deleteCar(${index})">Delete</button>
+                `;
+                carList.appendChild(carCard);
+            });
+        }
+
+        function showDetails(index) {
+            let cars = JSON.parse(localStorage.getItem("cars")) || [];
+            let car = cars[index];
+
+            let modal = document.getElementById("carModal");
+            let modalContent = document.getElementById("modalContent");
+            modalContent.innerHTML = `
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <img src="${car.imageURL}" alt="${car.name}">
+                <h3>${car.name}</h3>
+                <p><strong>Price:</strong> ${car.price} PKR</p>
+                <p><strong>Color:</strong> ${car.color}</p>
+                <p><strong>Details:</strong> ${car.details}</p>
+            `;
+            modal.style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("carModal").style.display = "none";
+        }
+
+        function deleteCar(index) {
+            let cars = JSON.parse(localStorage.getItem("cars")) || [];
+            cars.splice(index, 1);
+            localStorage.setItem("cars", JSON.stringify(cars));
+            displayCars();
+        }
+
+        document.addEventListener("DOMContentLoaded", displayCars);
+
+        function toggleMenu(event) {
+            event.stopPropagation();
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+
+        function closeMenu(event) {
+            const navLinks = document.querySelector('.nav-links');
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                navLinks.classList.remove('show');
+            }
+        }
+
+        function logout() {
+            if (confirm("Are you sure you want to log out?")) {
+                localStorage.removeItem("loggedInUser");
+                window.location.href = "form-login.html";
+            }
+        }
+    </script>
+</body>
+
+</html>
